@@ -128,6 +128,7 @@ class MainActivity : ComponentActivity() {
     private fun setChiuitText(resultText: String?) {
         if (!resultText.isNullOrBlank()) {
             val newChiuit = Chiuit(resultText)
+            
             chiuitListState.value = listOf(newChiuit) + chiuitListState.value
         }
     }
