@@ -1,4 +1,3 @@
-
 package com.example.lists
 
 import android.app.Activity
@@ -18,17 +17,16 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 
-
-// TODO 4: All application components must be added to manifest. Make sure to add this one.
 class ComposeActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,14 +67,10 @@ class ComposeActivity : ComponentActivity() {
     }
 
     private fun onEditClick(text: String) {
-        // Prepare the intent to be returned as result.
         val returnIntent = Intent().apply {
             putExtra(EXTRA_TEXT, text)
         }
-
-        // Mark the result as success and attach text data.
         setResult(Activity.RESULT_OK, returnIntent)
-        // Finish the activity, we do not need it anymore after we got the text input.
         finish()
     }
 
@@ -85,9 +79,4 @@ class ComposeActivity : ComponentActivity() {
     private fun DefaultPreview() {
         ComposeScreen()
     }
-
-    companion object {
-        const val EXTRA_TEXT = "extra_text"
-    }
-
 }
